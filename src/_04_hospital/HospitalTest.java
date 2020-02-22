@@ -17,7 +17,7 @@ import junit.framework.TestCase;
 
 public class HospitalTest extends TestCase {
 
-	Hospital testHospital = new Hospital();
+	HospitalTest testHospital = new HospitalTest();
 
 	public void testAddDoctor() {
 		testHospital.addDoctor(new GeneralPractitioner());
@@ -97,7 +97,7 @@ assertTrue(testDoctor.getPatients().size() == 3);
 
 	public void test8Patients() throws Exception {
 		// TODO: add 3 doctors to hospital
-
+		
 		// TODO: add 8 patients to hospital
 
 		// hospital assigns patients to doctors
