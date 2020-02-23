@@ -1,6 +1,7 @@
 package _03_polymorphs;
 
 import java.awt.Graphics;
+import java.util.Random;
 
 public abstract class Polymorph {
     private int x;
@@ -14,7 +15,12 @@ public abstract class Polymorph {
     }
     
     public void update(){
-   	 
+//   	 x = new Random().nextInt(850);
+//   	 y = new Random().nextInt(550);
+    	
+    		x++;
+    		y++;
+		    	
     }
     
     public abstract void draw(Graphics g);
@@ -52,6 +58,7 @@ public abstract class Polymorph {
 	}
 
 	public void setWidth(int width) {
+		width = 50;
 		this.width = width;
 	}
 
@@ -60,6 +67,7 @@ public abstract class Polymorph {
 	}
 
 	public void setHeight(int height) {
+		height = 50;
 		this.height = height;
 	}
 	

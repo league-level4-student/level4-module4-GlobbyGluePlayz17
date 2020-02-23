@@ -7,16 +7,23 @@ public class MovingMorph extends Polymorph{
 
 	MovingMorph(int x, int y) {
 		super(x, y);
+		setWidth(50);
+		setHeight(50);
 	}
 
 	@Override
 	public void draw(Graphics g) {
-		g.setColor(Color.gray);
-		g.fillRect(getX(), getY(), 50, 50);
+		g.setColor(Color.black);
+		g.fillRect(getX(), getY(), getWidth(), getHeight());
 	}
 	
-	public void update() {
-		
-	}
+//	public void Update() {
+//		for (int i = 0; i < 10; i+=10) {
+//			setX(getX()+i);
+//		}
+//		for (int i = 0; i < 10; i+=10) {
+//			setY(getY()+i);
+//		}
+//	}
 	
 }
