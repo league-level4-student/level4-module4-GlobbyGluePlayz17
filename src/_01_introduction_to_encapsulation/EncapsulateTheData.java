@@ -94,7 +94,7 @@ public class EncapsulateTheData {
 		assertEquals(360, getDegreesTurned());
 		setNomenclature("");
 		assertEquals(" ", getNomenclature());
-		setMemberObj(4);
-		assertEquals(4, getMemberObj());
+		setMemberObj("string");
+		assertEquals(false, getMemberObj() instanceof String);
 	}
 }

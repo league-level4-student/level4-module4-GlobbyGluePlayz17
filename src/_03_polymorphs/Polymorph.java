@@ -18,8 +18,8 @@ public abstract class Polymorph {
 //   	 x = new Random().nextInt(850);
 //   	 y = new Random().nextInt(550);
     	
-    		x++;
-    		y++;
+    	x++;
+		y++;
 		    	
     }
     

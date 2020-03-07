@@ -3,9 +3,9 @@ package _03_polymorphs;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class MovingMorph extends Polymorph{
+public class ImageMorph extends Polymorph{
 
-	MovingMorph(int x, int y) {
+	ImageMorph(int x, int y) {
 		super(x, y);
 		setWidth(50);
 		setHeight(50);
@@ -13,13 +13,12 @@ public class MovingMorph extends Polymorph{
 
 	@Override
 	public void draw(Graphics g) {
-		g.setColor(Color.black);
-		g.fillRect(getX(), getY(), getWidth(), getHeight());
+		g.setColor(Color.blue);
+		g.fillArc(getX(), getY(), getWidth(), getHeight(), 45, 270);
 	}
 	
 	public void update() {
-		setX(getX()+1);
-		setY(getY()+1);
+		
 	}
 	
 }
