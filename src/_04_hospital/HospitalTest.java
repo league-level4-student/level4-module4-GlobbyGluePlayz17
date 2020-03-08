@@ -4,8 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
-
 import junit.framework.TestCase;
 
 /* requirements:
@@ -16,22 +16,48 @@ import junit.framework.TestCase;
  */
 
 public class HospitalTest extends TestCase {
-
-	HospitalTest testHospital = new HospitalTest();
+	
+	public static void main(String[] args) {
+		HospitalTest testHospital = new HospitalTest();	
+	}
+	
+	ArrayList<Doctor> docarr = new ArrayList<Doctor>();
+	ArrayList<Patient> parr = new ArrayList<Patient>();
+	
 
 	public void testAddDoctor() {
-		testHospital.addDoctor(new GeneralPractitioner());
-		testHospital.addDoctor(new GeneralPractitioner());
-		testHospital.addDoctor(new Surgeon());
-		assertEquals(3, testHospital.getDoctors().size());
+		addDoctor(new GeneralPractitioner());
+		addDoctor(new GeneralPractitioner());
+		addDoctor(new Surgeon());
+		assertEquals(3, getDoctors().size());
+		System.out.println(getDoctors().size());
+	}
+
+
+	private ArrayList<Doctor> getDoctors() {
+		return docarr;
+	}
+
+
+	private void addDoctor(Doctor doctor) {
+		docarr.add(doctor);
 	}
 
 	public void testAddPatient() throws Exception {
-		testHospital.addPatient(new Patient());
-		testHospital.addPatient(new Patient());
-		testHospital.addPatient(new Patient());
-		assertEquals(3, testHospital.getPatients().size());
+		addPatient(new Patient());
+		addPatient(new Patient());
+		addPatient(new Patient());
+		assertEquals(3, getPatients().size());
 	}
+
+	public void addPatient(Patient patient) {
+		parr.add(patient);
+	}
+	
+	public ArrayList<Patient> getPatients() {
+		return parr;
+	}
+
 
 	/* Fix asserts one at a time */
 	public void testDoctorsHaveSpecialties() throws Exception {
@@ -96,19 +122,50 @@ assertTrue(testDoctor.getPatients().size() == 3);
 	}
 
 	public void test8Patients() throws Exception {
-		// TODO: add 3 doctors to hospital
+		for (int i = 0; i < docarr.size(); i++) {
+			docarr.get(i).patients.clear();
+		}
 		
+		// TODO: add 3 doctors to hospital
+		addDoctor(new GeneralPractitioner());
+		addDoctor(new Surgeon());
+		addDoctor(new Surgeon());
 		// TODO: add 8 patients to hospital
-
+		addPatient(new Patient());
+		addPatient(new Patient());
+		addPatient(new Patient());
+		addPatient(new Patient());
+		addPatient(new Patient());
+		addPatient(new Patient());
+		addPatient(new Patient());
+		addPatient(new Patient());
 		// hospital assigns patients to doctors
-		testHospital.assignPatientsToDoctors();
+		assignPatientsToDoctors();
 		// hospital.getDoctors shows doctors have 3, 3, 2 patients
-		List<Doctor> testDoctors = testHospital.getDoctors();
+		List<Doctor> testDoctors = getDoctors();
 		assertEquals(3, testDoctors.get(0).getPatients().size());
+		//	System.out.println(testDoctors.get(0).getPatients().size());
 		assertEquals(3, testDoctors.get(1).getPatients().size());
+		//	System.out.println(testDoctors.get(0).getPatients().size());
 		assertEquals(2, testDoctors.get(2).getPatients().size());
+		//	System.out.println(testDoctors.get(0).getPatients().size());
 	}
 
+
+	private void assignPatientsToDoctors() {
+		
+		for (int i = 0; i < docarr.size(); i++) {
+			for (int j = 0; j < parr.size(); j++) {
+				docarr.get(i).patients.add(parr.get(j));
+				
+				System.out.println(docarr.get(i).patients.size() + " " + i + " " + j);
+				
+				if (docarr.get(i).patients.size() == 3) {
+					break;
+				}
+			}		
+		}
+	}
 
 
 }
