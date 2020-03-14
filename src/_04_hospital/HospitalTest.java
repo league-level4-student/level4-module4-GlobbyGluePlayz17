@@ -30,7 +30,7 @@ public class HospitalTest extends TestCase {
 		addDoctor(new GeneralPractitioner());
 		addDoctor(new Surgeon());
 		assertEquals(3, getDoctors().size());
-		System.out.println(getDoctors().size());
+		//System.out.println(getDoctors().size());
 	}
 
 
@@ -122,9 +122,6 @@ assertTrue(testDoctor.getPatients().size() == 3);
 	}
 
 	public void test8Patients() throws Exception {
-		for (int i = 0; i < docarr.size(); i++) {
-			docarr.get(i).patients.clear();
-		}
 		
 		// TODO: add 3 doctors to hospital
 		addDoctor(new GeneralPractitioner());
@@ -139,6 +136,9 @@ assertTrue(testDoctor.getPatients().size() == 3);
 		addPatient(new Patient());
 		addPatient(new Patient());
 		addPatient(new Patient());
+		
+		System.out.println(docarr.size());
+		System.out.println(parr.size());
 		// hospital assigns patients to doctors
 		assignPatientsToDoctors();
 		// hospital.getDoctors shows doctors have 3, 3, 2 patients
@@ -154,16 +154,16 @@ assertTrue(testDoctor.getPatients().size() == 3);
 
 	private void assignPatientsToDoctors() {
 		
-		for (int i = 0; i < docarr.size(); i++) {
-			for (int j = 0; j < parr.size(); j++) {
-				docarr.get(i).patients.add(parr.get(j));
-				
-				System.out.println(docarr.get(i).patients.size() + " " + i + " " + j);
-				
-				if (docarr.get(i).patients.size() == 3) {
-					break;
-				}
-			}		
+		int doctor = 0;
+		for (int i = 0; i < parr.size(); i++) {
+			System.out.println(docarr.size());
+			System.out.println(parr.size());
+			try {
+				docarr.get(doctor).patients.add(parr.get(i));
+			} catch (Exception e) {
+				doctor++;
+				i--;
+			}
 		}
 	}
 

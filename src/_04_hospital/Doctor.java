@@ -14,8 +14,12 @@ public class Doctor extends HospitalTest{
 		return false;
 	}
 
-	public void assignPatient(Patient patient) {
-		patients.add(patient);
+	public void assignPatient(Patient patient) throws DoctorFullException {
+		if (patients.size()<3) {
+			patients.add(patient);
+		} else {
+			throw new DoctorFullException();
+		}
 	}
 
 	public ArrayList<Patient> getPatients() {
