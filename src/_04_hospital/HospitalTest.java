@@ -1,9 +1,5 @@
 package _04_hospital;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
 import java.util.List;
 import junit.framework.TestCase;
@@ -144,22 +140,22 @@ assertTrue(testDoctor.getPatients().size() == 3);
 		// hospital.getDoctors shows doctors have 3, 3, 2 patients
 		List<Doctor> testDoctors = getDoctors();
 		assertEquals(3, testDoctors.get(0).getPatients().size());
+	System.out.println(testDoctors.get(0).getPatients().size());
 		//	System.out.println(testDoctors.get(0).getPatients().size());
 		assertEquals(3, testDoctors.get(1).getPatients().size());
+	System.out.println(testDoctors.get(1).getPatients().size());
 		//	System.out.println(testDoctors.get(0).getPatients().size());
 		assertEquals(2, testDoctors.get(2).getPatients().size());
+	System.out.println(testDoctors.get(2).getPatients().size());
 		//	System.out.println(testDoctors.get(0).getPatients().size());
 	}
 
 
 	private void assignPatientsToDoctors() {
-		
 		int doctor = 0;
 		for (int i = 0; i < parr.size(); i++) {
-			System.out.println(docarr.size());
-			System.out.println(parr.size());
 			try {
-				docarr.get(doctor).patients.add(parr.get(i));
+				docarr.get(doctor).assignPatient(parr.get(i));
 			} catch (Exception e) {
 				doctor++;
 				i--;
